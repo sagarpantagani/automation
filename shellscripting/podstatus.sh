@@ -12,8 +12,7 @@ check_pod_status() {
 
 #local UP_PODS=$(awk '$2=="true"{up++;print $1} END{print up}' <<< "$POD_STATUS")
 #local UP_PODS=$(awk '$2=="true"{up++;print $1} END{if(up==""){up=0} print up}' <<< "$POD_STATUS")
- local UP_PODS=$(awk '$2=="true"{up++} END{print (up=="" ? 0 : up)}' <<< "$POD_STATUS")
-
+ 
 #local DOWN_PODS=$(awk '$2!="true"{down++} END{print down}' <<< "$POD_STATUS")
 #local DOWN_PODS=$(awk '$2!="true"{down++; print $1} END{if(down==""){down=0} print down}' <<< "$POD_STATUS")
  local DOWN_PODS=$(awk '$2!="true"{down++} END{print (down=="" ? 0 : down)}' <<< "$POD_STATUS")
